@@ -16,6 +16,27 @@ $filiere    = $_POST['Filiere']    ?? '';
 $motivation = $_POST['Motivation'] ?? '';
 }
 $reglement = isset($_POST['reglement']);
+if (empty($prenom)) {
+    $erreurs[] = "Le prénom est obligatoire.";
+}
+if (empty($nom)) {
+    $erreurs[] = "Le nom est obligatoire.";
+}
+if (empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    $erreurs[] = "L'adresse email est invalide.";
+}
+if (empty($age)) {
+    $erreurs[] = "L'âge doit être un nombre entre 16 et 30.";
+}
+if (empty($filiere)) {
+    $erreurs[] = "Veuillez choisir une filière.";
+}
+if (empty($motivation)) {
+    $erreurs[] = "La motivation doit contenir au moins 30 caractères.";
+}
+if (empty($reglement)) {
+    $erreurs[] = "Vous devez accepter le règlement.";
+}
 
 ?>
 <!DOCTYPE html>
