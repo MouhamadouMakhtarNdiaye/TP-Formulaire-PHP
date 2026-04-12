@@ -16,5 +16,32 @@ $erreurs   = [];
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-   
+    <form action="" method = "Post">
+        <div class = "container">
+        <label for="prenom">Prénom:</label>
+        <input type="text" name="prenom" >
+        <label for="nom">Nom:</label>
+        <input type="text" id="nom" name="nom" >
+        <label for="email">Email:</label>
+        <input type="email"  name="email" >
+        <label for="age">Age:</label>
+        <input type="number"  name="age" >
+        <label for="Filière">Filière:</label>
+        <select name ="Filière">
+            <option value="">--Choisir--</option>
+            <option value="">Informatique</option>
+            <option value="">Électronique</option>
+            <option value="">Mécanique</option>
+            <option value="">Chimie</option>
+        </select>
+        <label for="Motivation">Lettre De Motivation:</label>
+        <textarea  name="Motivation"></textarea>
+        <div>
+        <label for="reglement">J'ai lu et j'accepte le règlement du club</label>
+            <input type="checkbox" id="accord" name="reglement" value = "1">
+        </div>
+        <div>
+        <button type="submit">"Envoyer ma candidature"</button>
+        </div>
+    </form>
 </body>
