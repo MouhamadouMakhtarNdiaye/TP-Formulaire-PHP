@@ -47,6 +47,13 @@ if (empty($reglement)) {
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <?php if (!empty($erreurs)): ?>
+    <ul class="erreurs">
+        <?php foreach ($erreurs as $e): ?>
+            <li><?php echo $e; ?></li>
+        <?php endforeach; ?>
+    </ul>
+    <?php endif; ?>
     <form action="" method = "Post">
         <div class = "container">
         <label for="prenom">Prénom:</label>
