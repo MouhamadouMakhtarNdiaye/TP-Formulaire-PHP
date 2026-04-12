@@ -57,23 +57,23 @@ if (empty($reglement)) {
     <form action="" method = "Post">
         <div class = "container">
         <label for="prenom">Prénom:</label>
-        <input type="text" name="prenom" >
+        <input type="text" name="prenom" value="<?php echo $prenom; ?>" >
         <label for="nom">Nom:</label>
-        <input type="text" id="nom" name="nom" >
+        <input type="text" id="nom" name="nom" value="<?php echo $nom; ?>">
         <label for="email">Email:</label>
-        <input type="email"  name="email" >
+        <input type="email"  name="email" value="<?php echo $email; ?>">
         <label for="age">Age:</label>
-        <input type="number"  name="age" >
+        <input type="number"  name="age" value="<?php echo $age; ?>">
         <label for="Filière">Filière:</label>
         <select name ="Filière">
             <option value="">--Choisir--</option>
-            <option value="">Informatique</option>
-            <option value="">Électronique</option>
-            <option value="">Mécanique</option>
-            <option value="">Chimie</option>
+            <option value="informatique">Informatique</option>
+            <option value="electronique">Électronique</option>
+            <option value="mecanique">Mécanique</option>
+            <option value="chimie">Chimie</option>
         </select>
         <label for="Motivation">Lettre De Motivation:</label>
-        <textarea  name="Motivation"></textarea>
+        <textarea  name="Motivation" rows="6"><?php echo $motivation; ?>></textarea>
         <div>
         <label for="reglement">J'ai lu et j'accepte le règlement du club</label>
             <input type="checkbox" id="accord" name="reglement" value = "1">
