@@ -53,29 +53,29 @@ if (empty($reglement)) {
         <?php endforeach; ?>
     </ul>
     <?php endif; ?>
-    <form action="" method = "Post">
+   <form action="" method = "Post">
         <div class = "container">
         <label for="prenom">Prénom:</label>
-        <input type="text" name="prenom"  >
+        <input type="text" name="prenom" value="<?php echo $prenom; ?>" >
         <label for="nom">Nom:</label>
-        <input type="text" id="nom" name="nom" >
+        <input type="text" id="nom" name="nom" value="<?php echo $nom; ?>">
         <label for="email">Email:</label>
-        <input type="email"  name="email" >
+        <input type="email"  name="email" value="<?php echo $email; ?>">
         <label for="age">Age:</label>
-        <input type="number"  name="age" >
+        <input type="number"  name="age" value="<?php echo $age; ?>">
         <label for="Filière">Filière:</label>
         <select name ="Filière">
             <option value="">--Choisir--</option>
-            <option value="informatique">Informatique</option>
-            <option value="electronique">Électronique</option>
-            <option value="mecanique">Mécanique</option>
-            <option value="chimie">Chimie</option>
+            <option value="informatique"  <?php echo ($filiere === 'informatique') ? 'selected' : ''; ?>>Informatique</option>
+            <option value="electronique"  <?php echo ($filiere === 'electonique') ? 'selected' : ''; ?>>Électronique</option>
+            <option value="mecanique"  <?php echo ($filiere === 'mecanique') ? 'selected' : ''; ?>>Mécanique</option>
+            <option value="chimie"  <?php echo ($filiere === 'chimie') ? 'selected' : ''; ?>>Chimie</option>
         </select>
         <label for="Motivation">Lettre De Motivation:</label>
-        <textarea  name="Motivation" ></textarea>
+        <textarea  name="Motivation" rows="6"><?php echo $motivation; ?>></textarea>
         <div>
         <label for="reglement">J'ai lu et j'accepte le règlement du club</label>
-            <input type="checkbox" id="accord" name="reglement" value = "1">
+            <input type="checkbox" id="accord" name="reglement" value = "1"<?php echo $reglement ? 'checked' : ''; ?>>
         </div>
         <div>
         <button type="submit">"Envoyer ma candidature"</button>
