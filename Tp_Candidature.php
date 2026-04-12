@@ -6,6 +6,17 @@ $age       = '';
 $filiere   = '';
 $motivation = '';
 $erreurs   = [];
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+$prenom     = $_POST['prenom']     ?? '';
+$nom        = $_POST['nom']        ?? '';
+$email      = $_POST['Email']      ?? '';
+$age        = $_POST['Age']        ?? '';
+$filiere    = $_POST['Filiere']    ?? '';
+$motivation = $_POST['Motivation'] ?? '';
+}
+$reglement = isset($_POST['reglement']);
+var_dump($_POST);
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -15,7 +26,7 @@ $erreurs   = [];
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <form action="candidature.php" method = "Post">
+    <form action="" method = "Post">
         <div class = "container">
         <label for="prenom">Prénom:</label>
         <input type="text" name="prenom" required>
@@ -33,7 +44,7 @@ $erreurs   = [];
             <option value="">Mécanique</option>
             <option value="">Chimie</option>
         </select>
-        <label for="Lettre Motivation">Lettre De Motivation:</label>
+        <label for="Motivation">Lettre De Motivation:</label>
         <textarea  name="Motivation"></textarea>
         <div>
         <label for="reglement">J'ai lu et j'accepte le règlement du club</label>
