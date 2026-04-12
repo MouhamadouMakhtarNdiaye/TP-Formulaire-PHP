@@ -6,6 +6,16 @@ $age       = '';
 $filiere   = '';
 $motivation = '';
 $erreurs   = [];
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+$prenom     = $_POST['prenom']     ?? '';
+$nom        = $_POST['nom']        ?? '';
+$email      = $_POST['email']      ?? '';
+$age        = $_POST['age']        ?? '';
+$filiere    = $_POST['Filiere']    ?? '';
+$motivation = $_POST['Motivation'] ?? '';
+}
+$reglement = isset($_POST['reglement']);
 
 ?>
 <!DOCTYPE html>
