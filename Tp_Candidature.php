@@ -10,13 +10,35 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 $prenom     = $_POST['prenom']     ?? '';
 $nom        = $_POST['nom']        ?? '';
-$email      = $_POST['Email']      ?? '';
-$age        = $_POST['Age']        ?? '';
+$email      = $_POST['email']      ?? '';
+$age        = $_POST['age']        ?? '';
 $filiere    = $_POST['Filiere']    ?? '';
 $motivation = $_POST['Motivation'] ?? '';
 }
 $reglement = isset($_POST['reglement']);
-var_dump($_POST);
+
+if (empty($prenom)) {
+    $erreurs[] = "Le prénom est obligatoire.";
+}
+if (empty($nom)) {
+    $erreurs[] = "Le nom est obligatoire.";
+}
+if (empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    $erreurs[] = "L'adresse email est invalide.";
+}
+if (empty($age)) {
+    $erreurs[] = "L'âge doit être un nombre entre 16 et 30.";
+}
+if (empty($filiere)) {
+    $erreurs[] = "Veuillez choisir une filière.";
+}
+if (empty($motivation)) {
+    $erreurs[] = "La motivation doit contenir au moins 30 caractères.";
+}
+if (empty($reglement)) {
+    $erreurs[] = "Vous devez accepter le règlement.";
+}
+var_dump($erreurs);
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -29,13 +51,13 @@ var_dump($_POST);
     <form action="" method = "Post">
         <div class = "container">
         <label for="prenom">Prénom:</label>
-        <input type="text" name="prenom" required>
+        <input type="text" name="prenom" >
         <label for="nom">Nom:</label>
-        <input type="text" id="nom" name="nom" required>
-        <label for="Email">Email:</label>
-        <input type="email"  name="Email" required>
-        <label for="Age">Age:</label>
-        <input type="number"  name="Age" required>
+        <input type="text" id="nom" name="nom" >
+        <label for="email">Email:</label>
+        <input type="email"  name="email" >
+        <label for="age">Age:</label>
+        <input type="number"  name="age" >
         <label for="Filière">Filière:</label>
         <select name ="Filière">
             <option value="">--Choisir--</option>
