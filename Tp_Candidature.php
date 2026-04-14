@@ -46,7 +46,17 @@ if (empty($reglement)) {
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <?php if (!empty($erreurs)): ?>
+    <?php if (empty($erreurs) && $_SERVER['REQUEST_METHOD'] === 'POST'): ?>
+        <h1>Candidature reçue !</h1>
+        <p>Prénom : <?php echo $prenom; ?></p>
+        <p>Nom : <?php echo $nom; ?></p>
+        <p>Email : <?php echo $email; ?></p>
+        <p>Filiere : <?php echo $filiere; ?></p>
+        <p>Lettre De Motivation : <?php echo $motivation; ?></p>
+        <p>Votre candidature a bien été enregistrée. Nous vous contacterons à l'adresse indiquée.</p>
+        <nav> 
+            <a href="Tp_Candidature.php">Soumettre une nouvelle candidature</a>
+    <?php else: ?><?php if (!empty($erreurs)): ?>
     <ul class="erreurs">
         <?php foreach ($erreurs as $e): ?>
             <li><?php echo $e; ?></li>
@@ -63,11 +73,11 @@ if (empty($reglement)) {
         <input type="email"  name="email" value="<?php echo $email; ?>">
         <label for="age">Age:</label>
         <input type="number"  name="age" value="<?php echo $age; ?>">
-        <label for="Filière">Filière:</label>
-        <select name ="Filière">
+        <label for="Filiere">Filière:</label>
+        <select name ="Filiere">
             <option value="">--Choisir--</option>
             <option value="informatique"  <?php echo ($filiere === 'informatique') ? 'selected' : ''; ?>>Informatique</option>
-            <option value="electronique"  <?php echo ($filiere === 'electonique') ? 'selected' : ''; ?>>Électronique</option>
+            <option value="electronique"  <?php echo ($filiere === 'electronique') ? 'selected' : ''; ?>>Électronique</option>
             <option value="mecanique"  <?php echo ($filiere === 'mecanique') ? 'selected' : ''; ?>>Mécanique</option>
             <option value="chimie"  <?php echo ($filiere === 'chimie') ? 'selected' : ''; ?>>Chimie</option>
         </select>
@@ -81,4 +91,5 @@ if (empty($reglement)) {
         <button type="submit">"Envoyer ma candidature"</button>
         </div>
     </form>
+    <?php endif; ?>
 </body>
